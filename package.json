@@ -1,0 +1,80 @@
+{
+  "name": "vertiso-memory",
+  "displayName": "Vertiso Memory",
+  "version": "1.0.0",
+  "publisher": "vertiso",
+  "description": "Portable, user-owned memory and session workflows for AI agents in VS Code.",
+  "license": "SEE LICENSE IN LICENSE",
+  "icon": "assets/logo.png",
+  "homepage": "https://memory.vertiso.ai/docs/install",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Vertiso/memory-vscode.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Vertiso/memory-vscode/issues"
+  },
+  "engines": {
+    "vscode": "^1.109.0"
+  },
+  "categories": [
+    "Machine Learning"
+  ],
+  "keywords": [
+    "ai",
+    "memory",
+    "mcp",
+    "model-context-protocol",
+    "oauth",
+    "copilot",
+    "agents",
+    "handoff"
+  ],
+  "activationEvents": [],
+  "main": "./src/extension.js",
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": {
+      "supported": true
+    }
+  },
+  "contributes": {
+    "mcpServerDefinitionProviders": [
+      {
+        "id": "vertiso.memory",
+        "label": "Vertiso Memory"
+      }
+    ],
+    "chatSkills": [
+      {
+        "path": "./skills/checkpoint/SKILL.md"
+      },
+      {
+        "path": "./skills/handoff/SKILL.md"
+      },
+      {
+        "path": "./skills/handoff-resume/SKILL.md"
+      },
+      {
+        "path": "./skills/wrap-up/SKILL.md"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "node --check src/extension.js && node --check src/provider.js && node --check test/package-contents.js",
+    "typecheck": "tsc -p jsconfig.json",
+    "test": "node --test test/*.test.js",
+    "prepare-package": "node -e \"require('node:fs').mkdirSync('build', { recursive: true })\"",
+    "package": "npm run prepare-package && vsce package --no-dependencies --out build/vertiso-memory-vscode.vsix",
+    "verify-package": "node test/package-contents.js build/vertiso-memory-vscode.vsix",
+    "vscode:prepublish": "npm run lint && npm run typecheck && npm test"
+  },
+  "devDependencies": {
+    "@types/vscode": "1.109.0",
+    "@vscode/vsce": "3.9.2",
+    "typescript": "5.9.3",
+    "yauzl": "3.2.1"
+  }
+}
