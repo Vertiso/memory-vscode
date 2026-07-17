@@ -15,4 +15,5 @@ test/**
 *.pfx
 *.vsix
 package-lock.json
+SECURITY.md
 src/**/*.d.ts
