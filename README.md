@@ -8,6 +8,26 @@ Skills with VS Code. VS Code performs the OAuth sign-in and stores the
 resulting authorization. The extension does not read or retain your Vertiso
 credentials.
 
+## Install from the public source repository
+
+Until the Marketplace listing is live, build the extension from its public
+source repository:
+
+Build-only requirements: Node.js 24 and npm.
+
+```sh
+git clone https://github.com/Vertiso/memory-vscode.git
+cd memory-vscode
+npm ci
+npm run package
+```
+
+In VS Code, run **Extensions: Install from VSIX...** and select
+`build/vertiso-memory-vscode.vsix`. A locally installed VSIX does not provide
+the Marketplace's normal update path. After publication, uninstall this local
+1.0.0 build and install the Marketplace version so the Marketplace owns future
+updates.
+
 ## Connect
 
 1. Install the extension.
