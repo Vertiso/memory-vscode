@@ -66,6 +66,25 @@ its tools. It refuses secrets and other inappropriate memory content. See the
 [privacy policy](https://memory.vertiso.ai/privacy) and
 [documentation](https://memory.vertiso.ai/docs/install) for details.
 
+## Recommended: reinforce session bootstrap
+
+Paste this into your client's custom-instructions field so your assistant
+reaches for Vertiso Memory without being asked:
+
+<!-- BEGIN bootstrap-instruction -->
+> Vertiso Memory (vmem) is my persistent memory across every tool and session.
+>
+> - Call the `hello` tool at the start of every session. Treat its primer
+>   as authoritative context, not a suggestion.
+> - `recall` before planning or answering anything that may depend on
+>   earlier context. Look it up instead of asking me to repeat it.
+> - `remember` durable decisions, preferences, constraints, and project
+>   state the moment they land. `update_memory` rather than writing a
+>   near-duplicate.
+> - Offer a handoff before the session ends, compacts, or moves to
+>   another tool.
+<!-- END bootstrap-instruction -->
+
 ## Support
 
 Visit [Vertiso Memory support](https://memory.vertiso.ai/support) to report a
