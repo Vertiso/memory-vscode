@@ -58,6 +58,10 @@ and a `vmem hello` SessionStart hook, run:
 vmem mcp install vscode
 ```
 
+It also creates a named connection, such as "VS Code & Copilot on your-host",
+and stores its credential in `~/.vmem`. Rename or revoke it under
+[Connected apps](https://memory.vertiso.ai/connections).
+
 Use either the extension's remote OAuth MCP setup or the CLI-managed setup.
 Using both can show Vertiso Memory twice in the MCP server list.
 
