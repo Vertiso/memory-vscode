@@ -1,0 +1,10 @@
+{
+  "advisories": [
+    {
+      "id": "GHSA-xcx6-jx8p-x3h5",
+      "package": "@azure/msal-node",
+      "added": "2026-10-27",
+      "reason": "Dev-only: @vscode/vsce 4.0.0 -> @azure/identity 4.13.3 -> @azure/msal-node 6.0.1. The flaw is in MSAL Node's authorization code flow. vsce loads @azure/identity only to publish with Azure credentials, and no workflow runs vsce publish; the extension has no npm runtime dependencies. The fix is msal-node 7.1.0, and no @azure/identity release accepts msal-node 7 yet. Remove this entry when an @azure/identity release does and the lockfile takes it; the gate fails once npm stops reporting the advisory."
+    }
+  ]
+}

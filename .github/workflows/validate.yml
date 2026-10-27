@@ -27,8 +27,12 @@ jobs:
       - name: Install pinned dependencies
         run: npm ci
 
+      # npm audit --audit-level=high, honoring the reviewed allow-list in
+      # .github/npm-audit-allowlist.json.
       - name: Audit dependencies
-        run: npm audit --audit-level=high
+        run: |
+          node --test .github/scripts/npm-audit-gate.test.js
+          node .github/scripts/npm-audit-gate.js
 
       - name: Test and package extension
         run: |
