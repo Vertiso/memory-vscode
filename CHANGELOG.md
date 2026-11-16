@@ -2,6 +2,22 @@
 
 # Vertiso Memory plugin changelog
 
+## 1.6.0 — 2026-11-13
+
+- Declare a project by writing a memory of type project with the project tag,
+  whose title's first words (up to a colon or dash) are the name. A tag you or
+  an agent states does not confirm a project tag; a declaration does, or merging
+  a confirmed tag into it. An undeclared project name in tags applies as
+  proposed.
+- Return project_tags from remember, update_memory, POST /v1/memories, and PATCH
+  /v1/memories/:id.
+- Add list_tags, GET /v1/tags, and vmem tags ls, with type, state, query,
+  archived, limit, and offset.
+- Name your declared projects in hello: five most recent, twenty with verbose,
+  and the list_tags call for the rest.
+- Treat a tags value with no type as your existing tag of that name, or else as
+  a topic.
+
 ## 1.5.0 — 2026-11-07
 
 - Start an action found in a memory not typed action as suggested; an action in
@@ -14,8 +30,8 @@
   list_actions and GET /v1/actions, and --suggested-within-days,
   --closed-within-days, and --include-expired to vmem actions.
 - Retire parking: hello no longer returns a parked count, and work parked and
-  vmem actions --parked are accepted and ignored until 1.6.0 removes them.
-  purge_actions deletes closed actions only.
+  vmem actions --parked are accepted and ignored until a later release removes
+  them. purge_actions deletes closed actions only.
 
 ## 1.4.0 — 2026-11-04
 
