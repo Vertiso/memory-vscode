@@ -2,6 +2,20 @@
 
 # Vertiso Memory plugin changelog
 
+## 1.7.0 — 2026-11-19
+
+- Nest tags of every type up to four levels. In a typed tag the first colon ends
+  the type and each later colon makes one more level (project:atlas:api). A
+  typed path makes each missing level.
+- Store a typed slash as a dash, for every type. project:atlas/api is now the
+  flat tag atlas-api, not a child of atlas. Write project:atlas:api for the
+  child.
+- Return notices from remember, update_memory, handoff, POST /v1/memories, PATCH
+  /v1/memories/:id, and POST /v1/handoff: too_deep for a path over four levels
+  (no tag is made), and slash_is_not_a_level with a hint for the child form.
+- Address a child card as knowledge/project/atlas:api. The old atlas/api address
+  still reads the same card.
+
 ## 1.6.0 — 2026-11-13
 
 - Declare a project by writing a memory of type project with the project tag,
